@@ -29,5 +29,5 @@ ___
   
 ### 4. Test  
   eg. `python main.py --phase test --dataset Hayao`  
-   or `python test.py --checkpoint_dir 'checkpoint/NijigenGAN_Shinkai_lsgan_300_300_1_3_10' --test_dir dataset/test/real --style_name H`  
+  or `python test.py --checkpoint_dir checkpoint/NijigenGAN_Shinkai_lsgan_300_300_1_3_10 --test_dir dataset/test/real --style_name H`  
 
