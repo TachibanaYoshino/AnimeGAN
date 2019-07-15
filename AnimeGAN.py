@@ -235,7 +235,7 @@ class AnimeGAN(object) :
                     self.real:real[0],
                     self.anime:anime[0],
                     self.anime_gray:anime[1],
-                    self.anime_smooth:anime_smooth[0]
+                    self.anime_smooth:anime_smooth[1]
                 }
 
                 if epoch < self.init_epoch :
