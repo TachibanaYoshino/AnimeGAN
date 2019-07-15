@@ -12,7 +12,7 @@ def parse_args():
     desc = "Tensorflow implementation of AnimeGAN"
     parser = argparse.ArgumentParser(description=desc)
 
-    parser.add_argument('--checkpoint_dir', type=str, default='checkpoint/'+'NijigenGAN_Shinkai_lsgan_300_300_1_3_10',
+    parser.add_argument('--checkpoint_dir', type=str, default='checkpoint/'+'AnimeGAN_Shinkai_lsgan_300_300_1_3_10',
                         help='Directory name to save the checkpoints')
     parser.add_argument('--test_dir', type=str, default='dataset/test/real',
                         help='Directory name of test photos')
