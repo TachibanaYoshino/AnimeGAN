@@ -38,7 +38,7 @@ class ImageGenerator(object):
 
     def read_image(self, img_path1):
 
-        if 'style' in img_path1.decode():
+        if 'style' in img_path1.decode() or 'smooth' in img_path1.decode():
             image1 = cv2.imread(img_path1.decode()).astype(np.float32)
             image1 = cv2.cvtColor(image1, cv2.COLOR_BGR2RGB)
 
