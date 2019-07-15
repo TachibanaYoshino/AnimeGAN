@@ -26,7 +26,7 @@ def parse_args():
 
     parser.add_argument('--g_adv_weight', type=float, default=300.0, help='Weight about GAN')
     parser.add_argument('--d_adv_weight', type=float, default=300.0, help='Weight about GAN')
-    parser.add_argument('--con_weight', type=float, default=1.0, help='Weight about VGG19')
+    parser.add_argument('--con_weight', type=float, default=1.5, help='Weight about VGG19')
     # ------ the follow weight used in AnimeGAN
     parser.add_argument('--sty_weight', type=float, default=3.0, help='Weight about style')
     parser.add_argument('--color_weight', type=float, default=10.0, help='Weight about color')
