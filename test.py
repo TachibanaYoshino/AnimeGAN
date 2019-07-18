@@ -53,8 +53,9 @@ def test(checkpoint_dir,style_name, test_dir, img_size=[256,256]):
         else:
             print(" [*] Failed to find a checkpoint")
             return
-
-        #stats_graph(tf.get_default_graph())
+        
+        # FLOPs
+        stats_graph(tf.get_default_graph())
 
         begin = time.time()
         for sample_file  in tqdm(test_files) :
