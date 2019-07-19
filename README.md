@@ -17,6 +17,7 @@ ___
 ## Usage  
 ### 1. Download vgg19  
 > [vgg19.npy](https://mega.nz/#!xZ8glS6J!MAnE91ND_WyfZ_8mvkuSa2YcA7q-1ehfSm-Q1fxOvvs)  
+  
 > pretrained model  
 
 ### 2. Download dataset  
