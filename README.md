@@ -36,6 +36,10 @@ ___
 ____  
 ## Results  
 ------> pictures from the paper 'AnimeGAN: a novel lightweight GAN for photo animation'  
+![](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/doc/sota.png)  
+![](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/doc/e2.png)  
+![](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/doc/e3.png)  
+![](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/doc/e4.png)  
 
 ------> Photo  to  Hayao  Style  
 ![](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/result/Hayao/photo/1%20(37).jpg)![](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/result/Hayao/photo_result/1%20(37).jpg)  
