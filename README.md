@@ -2,7 +2,7 @@
 A Tensorflow implementation of AnimeGAN for fast photo animation  !!!
   
 -----  
-This is the Open source of the paper <AnimeGAN: >, which uses the GAN framwork to transform real-world photos into anime images.  
+This is the Open source of the paper <AnimeGAN: a novel lightweight GAN for photo animation>, which uses the GAN framwork to transform real-world photos into anime images.  
 ___  
 
 ## Requirements  
@@ -35,7 +35,7 @@ ___
   
 ____  
 ## Results  
-------> pictures from the paper 'AnimeGAN: '  
+------> pictures from the paper 'AnimeGAN: a novel lightweight GAN for photo animation'  
 
 ------> Photo  to  Hayao  Style  
 ![](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/result/Hayao/photo/1%20(37).jpg)![](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/result/Hayao/photo_result/1%20(37).jpg)  
