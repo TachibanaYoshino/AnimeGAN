@@ -21,7 +21,7 @@ ___
 > [Pretrained model](https://github.com/TachibanaYoshino/AnimeGAN/releases/tag/Haoyao-style_V1.0)  
 
 ### 2. Download dataset  
-> [Link, key: c53a](https://pan.baidu.com/s/1EwHVL6f-LkyB_kLJqiISVg)  
+> [Link, key: pwsc](https://pan.baidu.com/s/15UBweJOrRkgUKKNI6967HA)  
 
 ### 3. Do edge_smooth  
   eg. `python edge_smooth.py --dataset Haoyao --img_size 256`  
