@@ -27,7 +27,7 @@ ___
   eg. `python edge_smooth.py --dataset Haoyao --img_size 256`  
   
 ### 3. Train  
-  eg. `python main.py --phase train --dataset Haoyao --epoch 101 --init_epoch 1`  
+  eg. `python main.py --phase train --dataset Hayao --epoch 101 --init_epoch 1`  
   
 ### 4. Test  
   eg. `python main.py --phase test --dataset Hayao`  
