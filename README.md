@@ -27,10 +27,10 @@ ___
 > [Link](https://github.com/TachibanaYoshino/AnimeGAN/releases/tag/dataset-1)  
 
 ### 3. Do edge_smooth  
-  eg. `python edge_smooth.py --dataset Haoyao --img_size 256`  
+  eg. `python edge_smooth.py --dataset Hayao --img_size 256`  
   
 ### 3. Train  
-  eg. `python main.py --phase train --dataset Haoyao --epoch 101 --init_epoch 1`  
+  eg. `python main.py --phase train --dataset Hayao --epoch 101 --init_epoch 1`  
   
 ### 4. Test  
   eg. `python main.py --phase test --dataset Hayao`  
