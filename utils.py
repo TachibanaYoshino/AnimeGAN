@@ -49,15 +49,15 @@ def random_crop(img1, img2, crop_H, crop_W):
     assert  img1.shape ==  img2.shape
     h, w = img1.shape[:2]
 
-    # 裁剪宽度不可超过原图可裁剪宽度
+    # The crop width cannot exceed the original image crop width
     if crop_W > w:
         crop_W = w
-    # 裁剪高度
-
+    
+    # Crop height
     if crop_H > h:
         crop_H = h
 
-    # 随机生成左上角的位置
+    # Randomly generate the position of the upper left corner
     x0 = np.random.randint(0, w - crop_W + 1)
     y0 = np.random.randint(0, h - crop_H + 1)
 
