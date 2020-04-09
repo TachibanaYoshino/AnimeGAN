@@ -124,7 +124,7 @@ class G_net(object):
                 inputs = Conv2DNormLReLU(inputs, 128)
 
             with tf.variable_scope('u1'):
-                inputs = Unsample(inputs,128)
+                inputs = Unsample(inputs,128)    # The number of the filters in this layer is 128 while it is 64 in the graph of the paper. Please refer to the code.
                 inputs = Conv2DNormLReLU(inputs, 64)
                 inputs = Conv2DNormLReLU(inputs, 64)
 
