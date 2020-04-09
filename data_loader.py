@@ -2,7 +2,6 @@ import os
 import tensorflow as tf
 import cv2,random
 import numpy as np
-from utils import random_crop
 
 
 class ImageGenerator(object):
