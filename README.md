@@ -5,6 +5,8 @@ A Tensorflow implementation of AnimeGAN for fast photo animation  !!!
 This is the Open source of the paper <AnimeGAN: a novel lightweight GAN for photo animation>, which uses the GAN framwork to transform real-world photos into anime images.  
   
 **Some suggestions:** since the real photos in the training set are all landscape photos, if you want to stylize the photos with people as the main body, you may as well add at least 3000 photos of people in the training set and retrain to obtain a new model.  
+  
+**News:** AnimeGAN+ is expected to be released this summer. After some simple tricks were added to AnimeGAN, the obtained AnimeGAN+ has better animation effects. When I return to school to graduate, more pre-trained models and video animation test code will also be released in this repository.  
 
 ___  
 
