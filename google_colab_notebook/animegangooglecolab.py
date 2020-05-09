@@ -12,45 +12,46 @@ Change runtime to GPU before doing anything else
 !git clone https://github.com/Quentin-M/AnimeGAN.git
 
 import os
+print(os.listdir(os.getcwd()))
 os.chdir('AnimeGAN')
 print(os.getcwd())
 
-"""create a new file called ```download_asset.sh``` in  AnimeGan folder and add the following
+"""create a new file called ```download_asset.sh``` in  AnimeGan folder"""
 
-``` 
-checkpoint="$1"
+with open ('download_asset.sh', 'w') as rsh:
+    rsh.write('''\
+    checkpoint="$1"
+    if [ "$checkpoint" = "initial" ]; then
+        URL=https://github.com/TachibanaYoshino/AnimeGAN/releases/download/Haoyao-style_V1.0/Haoyao-style-initial-checkpoint.zip
+    else
+        URL=https://github.com/TachibanaYoshino/AnimeGAN/releases/download/Haoyao-style_V1.0/Haoyao-style.zip
+    fi
+    ZIP_FILE=./checkpoint/Haoyao-style.zip
+    TARGET_DIR=./checkpoint/AnimeGAN_Hayao_lsgan_300_300_1_3_10
+    wget -N $URL -O $ZIP_FILE
+    mkdir -p $TARGET_DIR
+    unzip $ZIP_FILE -d $TARGET_DIR
+    rm $ZIP_FILE
+    DatesetURL=https://github.com/TachibanaYoshino/AnimeGAN/releases/download/dataset-1/dataset.zip
+    ZIP_FILE=./dataset.zip
+    TARGET_DIR=./dataset
+    rm -rf dataset
+    wget -N $DatesetURL -O $ZIP_FILE
+    unzip $ZIP_FILE -d $TARGET_DIR
+    rm $ZIP_FILE
+    VGG_FILE=./vgg19_weight/vgg19.npy
+    VGG_URL=https://github.com/TachibanaYoshino/AnimeGAN/releases/download/vgg16%2F19.npy/vgg19.npy
+    wget -N $VGG_URL -O $VGG_FILE
+    ''')
 
-if [ "$checkpoint" = "initial" ]; then
-	URL=https://github.com/TachibanaYoshino/AnimeGAN/releases/download/Haoyao-style_V1.0/Haoyao-style-initial-checkpoint.zip
-else
-	URL=https://github.com/TachibanaYoshino/AnimeGAN/releases/download/Haoyao-style_V1.0/Haoyao-style.zip
-fi
-ZIP_FILE=./checkpoint/Haoyao-style.zip
-TARGET_DIR=./checkpoint/AnimeGAN_Hayao_lsgan_300_300_1_3_10
-wget -N $URL -O $ZIP_FILE
-mkdir -p $TARGET_DIR
-unzip $ZIP_FILE -d $TARGET_DIR
-rm $ZIP_FILE
-DatesetURL=https://github.com/TachibanaYoshino/AnimeGAN/releases/download/dataset-1/dataset.zip
-ZIP_FILE=./dataset.zip
-TARGET_DIR=./dataset
-rm -rf dataset
-wget -N $DatesetURL -O $ZIP_FILE
-unzip $ZIP_FILE -d $TARGET_DIR
-rm $ZIP_FILE
-VGG_FILE=./vgg19_weight/vgg19.npy
-VGG_URL=https://github.com/TachibanaYoshino/AnimeGAN/releases/download/vgg16%2F19.npy/vgg19.npy
-wget -N $VGG_URL -O $VGG_FILE 
-```
-
-##Download assset
+"""##Download assset
 
 Do ``` !bash download_asset.sh initial ``` if you want the inital checkpoint, ``` !bash download_asset.sh ``` for the pretrained hayao model
 """
 
 !bash download_asset.sh
 
-"""Check if you have 8GB or 16GB of VRAM"""
+"""Check your graphic card"""
 
 !nvidia-smi
 
@@ -81,7 +82,6 @@ in the checkpoint folder so we can train from sractch
 ## Train
 
 In ```main.py``` :
-```batch size``` can be changed to 8 , if you have 16GB of VRAM
 
 For Shinkai, ```con_weight``` should be set to 1.1
 """
