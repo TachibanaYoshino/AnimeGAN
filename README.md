@@ -1,5 +1,7 @@
 # AnimeGAN
-A Tensorflow implementation of AnimeGAN for fast photo animation  !!!
+A Tensorflow implementation of AnimeGAN for fast photo animation  !  
+The paper can be accessed [here](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/doc/Chen2020_Chapter_AnimeGAN.pdf) or on the [website](https://link.springer.com/chapter/10.1007/978-981-15-5577-0_18).  
+
   
 -----  
 This is the Open source of the paper <AnimeGAN: a novel lightweight GAN for photo animation>, which uses the GAN framwork to transform real-world photos into anime images.  
