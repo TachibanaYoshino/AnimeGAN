@@ -47,7 +47,7 @@ def adjust_brightness_from_src_to_dst(dst, src,path=None,if_show=None):
     result_show_img = np.zeros((max(ma, mb), 3 * max(na, nb), 3))
     result_show_img[:mb, :nb, :] = dst
     result_show_img[:ma, nb:na + nb, :] = src
-    result_show_img[:mb, na + nb:na + nb + na, :] = dstf
+    result_show_img[:mb, na + nb:na + nb + nb, :] = dstf
     result_show_img = result_show_img.astype(np.uint8)
 
     if if_show:
