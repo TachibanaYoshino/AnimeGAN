@@ -30,7 +30,7 @@ def preprocessing(img, size):
     return img/127.5 - 1.0
 
 
-def save_images(images, image_path, photo_path):
+def save_images(images, image_path, photo_path = None):
     fake = inverse_transform(images.squeeze())
     if photo_path:
         return imsave(adjust_brightness_from_src_to_dst(fake, read_img(photo_path)),  image_path)
