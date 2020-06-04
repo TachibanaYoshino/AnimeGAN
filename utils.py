@@ -1,6 +1,6 @@
 import tensorflow as tf
 from tensorflow.contrib import slim
-from scipy import misc
+from Brightness_tool.adjust_brightness import adjust_brightness_from_src_to_dst, read_img
 import os,cv2
 import numpy as np
 
@@ -30,9 +30,12 @@ def preprocessing(img, size):
     return img/127.5 - 1.0
 
 
-def save_images(images, image_path):
-    # return imsave(inverse_transform(images), size, image_path)
-    return imsave(inverse_transform(images.squeeze()),  image_path)
+def save_images(images, image_path, photo_path):
+    fake = inverse_transform(images.squeeze())
+    if photo_path:
+        return imsave(adjust_brightness_from_src_to_dst(fake, read_img(photo_path)),  image_path)
+    else:
+        return imsave(fake, image_path)
 
 def inverse_transform(images):
     images = (images + 1.) / 2 * 255
@@ -44,7 +47,6 @@ def inverse_transform(images):
 
 
 def imsave(images, path):
-    # return misc.imsave(path, images)
     return cv2.imwrite(path, cv2.cvtColor(images, cv2.COLOR_BGR2RGB))
 
 crop_image = lambda img, x0, y0, w, h: img[y0:y0+h, x0:x0+w]
