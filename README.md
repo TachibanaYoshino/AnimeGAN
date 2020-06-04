@@ -1,6 +1,8 @@
 # AnimeGAN
 A Tensorflow implementation of AnimeGAN for fast photo animation  !  
 The paper can be accessed [here](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/doc/Chen2020_Chapter_AnimeGAN.pdf) or on the [website](https://link.springer.com/chapter/10.1007/978-981-15-5577-0_18).  
+  
+Good news: tensorflow-1.15.0 is compatible with the code of this repository. In this version, you can run this code without any modification. The premise is that the CUDA and cudnn corresponding to the tf version are correctly installed. Maybe the versions between tf-1.8.0 and tf-1.15.0 are also supported and compatible with this repository, but I didn’t make too many extra attempts.  
 
   
 -----  
