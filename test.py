@@ -18,6 +18,8 @@ def parse_args():
                         help='Directory name of test photos')
     parser.add_argument('--style_name', type=str, default='S',
                         help='what style you want to get')
+    parser.add_argument('--if_adjust_brightness', type=bool, default=True,
+                        help='adjust brightness by the real photo')
 
     """checking arguments"""
 
@@ -28,7 +30,7 @@ def stats_graph(graph):
     # params = tf.profiler.profile(graph, options=tf.profiler.ProfileOptionBuilder.trainable_variables_parameter())
     print('FLOPs: {}'.format(flops.total_float_ops))
 
-def test(checkpoint_dir,style_name, test_dir, img_size=[256,256]):
+def test(checkpoint_dir, style_name, test_dir, if_adjust_brightness, img_size=[256,256]):
     # tf.reset_default_graph()
     result_dir = 'results/'+style_name
     check_folder(result_dir)
@@ -55,7 +57,7 @@ def test(checkpoint_dir,style_name, test_dir, img_size=[256,256]):
             return
         
         # FLOPs
-        stats_graph(tf.get_default_graph())
+        # stats_graph(tf.get_default_graph())
 
         begin = time.time()
         for sample_file  in tqdm(test_files) :
@@ -63,11 +65,14 @@ def test(checkpoint_dir,style_name, test_dir, img_size=[256,256]):
             sample_image = np.asarray(load_test_data(sample_file, img_size))
             image_path = os.path.join(result_dir,'{0}'.format(os.path.basename(sample_file)))
             fake_img = sess.run(test_generated, feed_dict = {test_real : sample_image})
-            save_images(fake_img, image_path)
+            if if_adjust_brightness:
+                save_images(fake_img, image_path, sample_file)
+            else:
+                save_images(fake_img, image_path, None)
         end = time.time()
         print(f'test-time: {end-begin} s')
         print(f'one image test time : {(end-begin)/len(test_files)} s')
 if __name__ == '__main__':
     arg = parse_args()
     print(arg.checkpoint_dir)
-    test(arg.checkpoint_dir, arg.style_name, arg.test_dir)
+    test(arg.checkpoint_dir, arg.style_name, arg.test_dir, arg.if_adjust_brightness)
