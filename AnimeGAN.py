@@ -298,8 +298,9 @@ class AnimeGAN(object) :
                     sample_image = np.asarray(load_test_data(sample_file, self.img_size))
                     test_real,test_generated = self.sess.run([self.test_real,self.test_generated],feed_dict = {self.test_real:sample_image} )
 
-                    save_images(test_real, save_path+'{:03d}_a.png'.format(i))
-                    save_images(test_generated, save_path+'{:03d}_b.png'.format(i))
+                    save_images(test_real, save_path+'{:03d}_a.png'.format(i), None)
+                    # adjust_brightness_from_photo_to_fake
+                    save_images(test_generated, save_path+'{:03d}_b.png'.format(i), sample_file) 
 
 
 
@@ -357,12 +358,13 @@ class AnimeGAN(object) :
         index.write("<th>name</th><th>input</th><th>output</th></tr>")
 
         for sample_file  in test_files :
-            print('Processing A image: ' + sample_file)
+            print('Processing the image: ', sample_file)
             sample_image = np.asarray(load_test_data(sample_file, self.img_size))
             image_path = os.path.join(self.result_dir,'{0}'.format(os.path.basename(sample_file)))
 
             fake_img = self.sess.run(self.test_generated, feed_dict = {self.test_real : sample_image})
-            save_images(fake_img, image_path)
+            # adjust_brightness_from_photo_to_fake
+            save_images(fake_img, image_path, sample_file)
 
             index.write("<td>%s</td>" % os.path.basename(image_path))
 
