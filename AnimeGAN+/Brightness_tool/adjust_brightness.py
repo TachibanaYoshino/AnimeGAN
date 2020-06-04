@@ -19,14 +19,15 @@ def calculate_average_brightness(img):
     return brightness, B, G, R
 
 # Adjusting the average brightness of the target image to the average brightness of the source image
-def adjust_brightness_from_src_to_dst(dst, src,path=None,if_show=None):
+def adjust_brightness_from_src_to_dst(dst, src,path=None,if_show=None, if_info=None):
     brightness1, B1, G1, R1 = calculate_average_brightness(src)
     brightness2, B2, G2, R2 = calculate_average_brightness(dst)
     brightness_difference = brightness1 / brightness2
 
-    print('Average brightness of original image', brightness1)
-    print('Average brightness of target', brightness2)
-    print('Brightness Difference between Original Image and Target', brightness_difference)
+    if if_info:
+        print('Average brightness of original image', brightness1)
+        print('Average brightness of target', brightness2)
+        print('Brightness Difference between Original Image and Target', brightness_difference)
 
     # According to the average display brightness
     dstf = dst * brightness_difference
@@ -65,4 +66,5 @@ if __name__ == '__main__':
   A = read_img('A.png')
   B = read_img('B.png')
 
-  adjusted = adjust_brightness_from_src_to_dst(A,B,path='./resA.png')
+  # adjusted = adjust_brightness_from_src_to_dst(A, B, path='resA.png')
+  adjusted = adjust_brightness_from_src_to_dst(A, B)
