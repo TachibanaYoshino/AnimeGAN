@@ -32,10 +32,15 @@ def preprocessing(img, size):
 
 def save_images(images, image_path):
     # return imsave(inverse_transform(images), size, image_path)
-    return imsave(inverse_transform(images.squeeze()).astype(np.uint8),  image_path)
+    return imsave(inverse_transform(images.squeeze()),  image_path)
 
 def inverse_transform(images):
-    return (images+1.) / 2 * 255
+    images = (images + 1.) / 2 * 255
+    # The calculation of floating-point numbers is inaccurate, 
+    # and the range of pixel values must be limited to the boundary, 
+    # otherwise, image distortion or artifacts will appear during display.
+    images = np.clip(images.astype(np.uint8), 0, 255)
+    return images
 
 
 def imsave(images, path):
