@@ -2,7 +2,9 @@
 A Tensorflow implementation of AnimeGAN for fast photo animation  !  
 The paper can be accessed [here](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/doc/Chen2020_Chapter_AnimeGAN.pdf) or on the [website](https://link.springer.com/chapter/10.1007/978-981-15-5577-0_18).  
   
-Good news: tensorflow-1.15.0 is compatible with the code of this repository. In this version, you can run this code without any modification. [The premise is that the CUDA and cudnn corresponding to the tf version are correctly installed](https://tensorflow.google.cn/install/source#gpu). Maybe the versions between tf-1.8.0 and tf-1.15.0 are also supported and compatible with this repository, but I didn’t make too many extra attempts.  
+**Online access**:  Be grateful to [@TonyLianLong](https://github.com/TonyLianLong/AnimeGAN.js) for developing an online access project, you can implement photo animation through a browser without installing anything, [click here to have a try](https://animegan.js.org/).  
+  
+**Good news**:  tensorflow-1.15.0 is compatible with the code of this repository. In this version, you can run this code without any modification. [The premise is that the CUDA and cudnn corresponding to the tf version are correctly installed](https://tensorflow.google.cn/install/source#gpu). Maybe the versions between tf-1.8.0 and tf-1.15.0 are also supported and compatible with this repository, but I didn’t make too many extra attempts.  
 
   
 -----  
@@ -13,7 +15,7 @@ This is the Open source of the paper <AnimeGAN: a novel lightweight GAN for phot
 2. In order to obtain a better face animation effect, when using 2 images as data pairs for training, it is suggested that the faces in the photos and the faces in the anime style data should be consistent in terms of gender as much as possible.  
 3. The generated stylized images will be affected by the overall brightness and tone of the style data, so try not to select the anime images of night as the style data, and it is necessary to make an exposure compensation for the overall style data to promote the consistency of brightness and darkness of the entire style data.  
 
-**News:** AnimeGAN+ is expected to be released this summer. After some simple tricks were added to AnimeGAN, the obtained AnimeGAN+ has better animation effects. When I return to school to graduate, more pre-trained models and video animation test code will also be released in this repository.  
+**News:**  AnimeGAN+ is expected to be released this summer. After some simple tricks were added to AnimeGAN, the obtained AnimeGAN+ has better animation effects. When I return to school to graduate, more pre-trained models and video animation test code will also be released in this repository.  
 
 ___  
 
@@ -47,13 +49,13 @@ ___
   
 ____  
 ## Results  
-------> pictures from the paper 'AnimeGAN: a novel lightweight GAN for photo animation'  
+> pictures from the paper 'AnimeGAN: a novel lightweight GAN for photo animation'  
 ![](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/doc/sota.png)  
 ![](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/doc/e2.png)  
 ![](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/doc/e3.png)  
 ![](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/doc/e4.png)  
-
-------> Photo  to  Hayao  Style  
+  
+> Photo  to  Hayao  Style  
 ![](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/result/Hayao/photo/1%20(37).jpg)![](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/result/Hayao/photo_result/1%20(37).jpg)  
 ![](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/result/Hayao/photo/1%20(1).jpg)![](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/result/Hayao/photo_result/1%20(1).jpg)  
 ![](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/result/Hayao/photo/1%20(20).jpg) ![](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/result/Hayao/photo_result/1%20(20).jpg)  
