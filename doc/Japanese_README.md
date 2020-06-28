@@ -4,7 +4,7 @@
   
 **オンラインアクセス**：  このオンラインサイトを開発してくれた[@TonyLianLong](https://github.com/TonyLianLong/AnimeGAN.js)のおかげで、何もインストールしなくてもブラウザから直接アクセスできます。[ここをクリックして試してみてください！](https://animegan.js.org/)  
   
-**吉報**： Tensorflow-1.15.0はこのリポジトリのコードと互換性があります。このバージョンでは、変更せずにこのコードを実行することができます。[前提は、TFバージョンに対応するCUDAとCudnnが正しくインストールされていることです。](https://tensorflow.google.cn/install/source#gpu).多分、TF-1.8.0とTF-1.15.0の間のバージョンも支持されて、この倉庫と互換性を持ちます、しかし、私はあまりに多くの余分の試みをしませんでした。
+**吉報**： Tensorflow-1.15.0はこのリポジトリのコードと互換性があります。このバージョンでは、変更せずにこのコードを実行することができます。[前提は、TFバージョンに対応するCUDAとCudnnが正しくインストールされていることです。](https://tensorflow.google.cn/install/source#gpu)。多分、TF-1.8.0とTF-1.15.0の間のバージョンも支持されて、この倉庫と互換性を持ちます、しかし、私はあまりに多くの余分の試みをしませんでした。
   
 -----    
 **いくつかのアドバイス**   
@@ -26,7 +26,7 @@ ___
 - argparse  
   
 ## 使い方  
-### 1. vgg 19または予備トレーニングのモデルをダウンロードします。  
+### 1. vgg 19あるいは予備トレーニングのモデルをダウンロードします。  
 > [vgg19.npy](https://github.com/TachibanaYoshino/AnimeGAN/releases/tag/vgg16%2F19.npy)  
   
 > [Pretrained model](https://github.com/TachibanaYoshino/AnimeGAN/releases/tag/Haoyao-style_V1.0)  
