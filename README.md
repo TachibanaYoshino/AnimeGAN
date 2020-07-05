@@ -1,6 +1,6 @@
 # AnimeGAN   
 
-A Tensorflow implementation of AnimeGAN for fast photo animation !    [For Japanese](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/doc/Japanese_README.md)  
+A Tensorflow implementation of AnimeGAN for fast photo animation !        [日本語](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/doc/Japanese_README.md)  
 The paper can be accessed [here](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/doc/Chen2020_Chapter_AnimeGAN.pdf) or on the [website](https://link.springer.com/chapter/10.1007/978-981-15-5577-0_18).  
   
 **Online access**:  Be grateful to [@TonyLianLong](https://github.com/TonyLianLong/AnimeGAN.js) for developing an online access project, you can implement photo animation through a browser without installing anything, [click here to have a try](https://animegan.js.org/).  
@@ -21,8 +21,10 @@ This is the Open source of the paper <AnimeGAN: a novel lightweight GAN for phot
 ___  
 
 ## Requirements  
-- python 3.6.8  
-- tensorflow-gpu 1.8  
+- python 3.6  
+- tensorflow-gpu 
+   - tensorflow-gpu 1.8.0  (ubuntu, GPU 1080Ti or Titan xp, cuda 9.0, cudnn 7.1.3)  
+   - tensorflow-gpu 1.15.0 (ubuntu, GPU 2080Ti, cuda 10.0.130, cudnn 7.6.0)  
 - opencv  
 - tqdm  
 - numpy  
