@@ -17,8 +17,10 @@
 ___  
 
 ## インストール依存項  
-- python 3.6.8  
-- tensorflow-gpu 1.8  
+- python 3.6  
+- tensorflow-gpu 
+   - tensorflow-gpu 1.8.0  (ubuntu, GPU 1080Ti or Titan xp, cuda 9.0, cudnn 7.1.3)  
+   - tensorflow-gpu 1.15.0 (ubuntu, GPU 2080Ti, cuda 10.0.130, cudnn 7.6.0)  
 - opencv  
 - tqdm  
 - numpy  
