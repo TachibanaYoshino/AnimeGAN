@@ -16,7 +16,19 @@ This is the Open source of the paper <AnimeGAN: a novel lightweight GAN for phot
 2. In order to obtain a better face animation effect, when using 2 images as data pairs for training, it is suggested that the faces in the photos and the faces in the anime style data should be consistent in terms of gender as much as possible.  
 3. The generated stylized images will be affected by the overall brightness and tone of the style data, so try not to select the anime images of night as the style data, and it is necessary to make an exposure compensation for the overall style data to promote the consistency of brightness and darkness of the entire style data.  
 
-**News:**  AnimeGAN+ will be expected to be released this summer.(TBD)  
+**News:**    
+Now, AnimeGAN has 2 significant problems:  
+1. It is difficult to get the effect reported in the paper directly through code training.  
+2. The generated image is prone to high-frequency artifacts.  
+Therefore, I will release a new version of AnimeGAN's pre-trained model in the near future. And provide the corresponding hyperparameter settings, and these settings may be a little different from those mentioned in the paper.  
+
+The improvement directions of AnimeGAN+ mainly include the following 4 points:  
+1. Solve the problem of high-frequency artifacts in the generated image.  
+2. It is easy to train and directly achieve the effects in the paper.  
+3. Further reduce the number of parameters of the generator network.  
+4. Use new high-quality style data, which come from BD movies as much as possible.  
+
+AnimeGAN+ will be expected to be released this summer.(TBD)  
 
 ___  
 
