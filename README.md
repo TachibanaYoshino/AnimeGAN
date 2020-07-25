@@ -28,6 +28,7 @@ The improvement directions of AnimeGAN+ mainly include the following 4 points:
 2. It is easy to train and directly achieve the effects in the paper.  
 3. Further reduce the number of parameters of the generator network.  
 4. Use new high-quality style data, which come from BD movies as much as possible.  
+5. Solve the problem that the overall tone of the style data is yellowish, which will affect the generated image tone.  
 
 AnimeGAN+ will be expected to be released this summer.(TBD)  
 
