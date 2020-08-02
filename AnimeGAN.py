@@ -1,11 +1,12 @@
-from ops import *
-from utils import *
+from tools.ops import *
+from tools.utils import *
 from glob import glob
 import time
 import numpy as np
 from net import generator
 from net.discriminator import D_net
-from data_loader import ImageGenerator
+from tools.data_loader import ImageGenerator
+from tools.vgg19 import Vgg19
 
 class AnimeGAN(object) :
     def __init__(self, sess, args):
@@ -16,6 +17,7 @@ class AnimeGAN(object) :
         self.result_dir = args.result_dir
         self.log_dir = args.log_dir
         self.dataset_name = args.dataset
+        self.data_mean = args.data_mean
 
 
         self.epoch = args.epoch
@@ -61,9 +63,9 @@ class AnimeGAN(object) :
         self.anime_gray = tf.placeholder(tf.float32, [self.batch_size, self.img_size[0], self.img_size[1], self.img_ch],name='anime_B')
 
 
-        self.real_image_generator = ImageGenerator('./dataset/train_photo', self.img_size, self.batch_size)
-        self.anime_image_generator = ImageGenerator('./dataset/{}'.format(self.dataset_name + '/style'), self.img_size, self.batch_size)
-        self.anime_smooth_generator = ImageGenerator('./dataset/{}'.format(self.dataset_name + '/smooth'), self.img_size, self.batch_size)
+        self.real_image_generator = ImageGenerator('./dataset/train_photo', self.img_size, self.batch_size, self.data_mean)
+        self.anime_image_generator = ImageGenerator('./dataset/{}'.format(self.dataset_name + '/style'), self.img_size, self.batch_size, self.data_mean)
+        self.anime_smooth_generator = ImageGenerator('./dataset/{}'.format(self.dataset_name + '/smooth'), self.img_size, self.batch_size, self.data_mean)
         self.dataset_num = max(self.real_image_generator.num_images, self.anime_image_generator.num_images)
 
         self.vgg = Vgg19()
@@ -248,7 +250,7 @@ class AnimeGAN(object) :
                     self.writer.add_summary(summary_str, epoch)
                     init_mean_loss.append(v_loss)
 
-                    print("Epoch: %3d Step: %5d  time: %f s init_v_loss: %.8f  mean_v_loss: %.8f" % (epoch, idx, time.time() - start_time, v_loss, np.mean(init_mean_loss)))
+                    print("Epoch: %3d Step: %5d / %5d  time: %f s init_v_loss: %.8f  mean_v_loss: %.8f" % (epoch, idx,int(self.dataset_num / self.batch_size), time.time() - start_time, v_loss, np.mean(init_mean_loss)))
                     if (idx+1)%200 ==0:
                         init_mean_loss.clear()
                 else :
@@ -269,13 +271,13 @@ class AnimeGAN(object) :
                     if j == self.training_rate:
 
                         print(
-                            "Epoch: %3d Step: %5d  time: %f s d_loss: %.8f, g_loss: %.8f -- mean_d_loss: %.8f, mean_g_loss: %.8f" % (
-                                epoch, idx, time.time() - start_time, d_loss, g_loss, np.mean(mean_loss, axis=0)[0],
+                            "Epoch: %3d Step: %5d / %5d  time: %f s d_loss: %.8f, g_loss: %.8f -- mean_d_loss: %.8f, mean_g_loss: %.8f" % (
+                                epoch, idx, int(self.dataset_num / self.batch_size), time.time() - start_time, d_loss, g_loss, np.mean(mean_loss, axis=0)[0],
                                 np.mean(mean_loss, axis=0)[1]))
                     else:
                         print(
-                            "Epoch: %3d Step: %5d  time: %f s , g_loss: %.8f --  mean_g_loss: %.8f" % (
-                                epoch, idx, time.time() - start_time, g_loss, np.mean(mean_loss, axis=0)[1]))
+                            "Epoch: %3d Step: %5d / %5d time: %f s , g_loss: %.8f --  mean_g_loss: %.8f" % (
+                                epoch, idx, int(self.dataset_num / self.batch_size), time.time() - start_time, g_loss, np.mean(mean_loss, axis=0)[1]))
 
                     if (idx + 1) % 200 == 0:
                         mean_loss.clear()

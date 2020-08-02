@@ -1,9 +1,8 @@
 from AnimeGAN import AnimeGAN
 import argparse
-from utils import *
+from tools.utils import *
 import os
 os.environ["CUDA_VISIBLE_DEVICES"] = "1"
-
 
 """parsing and configuration"""
 
@@ -12,22 +11,23 @@ def parse_args():
     parser = argparse.ArgumentParser(description=desc)
     parser.add_argument('--phase', type=str, default='train', help='train or test ?')
     parser.add_argument('--dataset', type=str, default='Hayao', help='dataset_name')
+    parser.add_argument('--data_mean', type=list, default=[ 13.1360,-8.6698,-4.4661 ], help='data_mean(bgr) from data_mean.py')
 
-    parser.add_argument('--epoch', type=int, default=131, help='The number of epochs to run')
+    parser.add_argument('--epoch', type=int, default=101, help='The number of epochs to run')
     parser.add_argument('--init_epoch', type=int, default=1, help='The number of epochs for weight initialization')
-    parser.add_argument('--batch_size', type=int, default=4, help='The size of batch size')
+    parser.add_argument('--batch_size', type=int, default=6, help='The size of batch size')
     parser.add_argument('--save_freq', type=int, default=1, help='The number of ckpt_save_freq')
 
     parser.add_argument('--init_lr', type=float, default=1e-4, help='The learning rate')
-    parser.add_argument('--g_lr', type=float, default=8e-5, help='The learning rate')
-    parser.add_argument('--d_lr', type=float, default=16e-5, help='The learning rate')
+    parser.add_argument('--g_lr', type=float, default=4e-5, help='The learning rate')
+    parser.add_argument('--d_lr', type=float, default=8e-5, help='The learning rate')
     parser.add_argument('--ld', type=float, default=10.0, help='The gradient penalty lambda')
 
     parser.add_argument('--g_adv_weight', type=float, default=300.0, help='Weight about GAN')
     parser.add_argument('--d_adv_weight', type=float, default=300.0, help='Weight about GAN')
     parser.add_argument('--con_weight', type=float, default=1.5, help='Weight about VGG19') # 1.1 for Shinkai
     # ------ the follow weight used in AnimeGAN
-    parser.add_argument('--sty_weight', type=float, default=3.0, help='Weight about style')
+    parser.add_argument('--sty_weight', type=float, default=1.8, help='Weight about style')
     parser.add_argument('--color_weight', type=float, default=10.0, help='Weight about color')
     # ---------------------------------------------
     parser.add_argument('--training_rate', type=int, default=1, help='training rate about G & D')
@@ -39,7 +39,6 @@ def parse_args():
     parser.add_argument('--ch', type=int, default=64, help='base channel number per layer')
     parser.add_argument('--n_dis', type=int, default=3, help='The number of discriminator layer')
     parser.add_argument('--sn', type=str2bool, default=True, help='using spectral norm')
-
 
     parser.add_argument('--checkpoint_dir', type=str, default='checkpoint',
                         help='Directory name to save the checkpoints')
@@ -57,10 +56,11 @@ def check_args(args):
     # --checkpoint_dir
     check_folder(args.checkpoint_dir)
 
-    # --result_dir
-    check_folder(args.result_dir)
+    if args.phase == 'test':
+        # --result_dir
+        check_folder(args.result_dir)
 
-    # --result_dir
+    # --log_dir
     check_folder(args.log_dir)
 
     # --sample_dir
@@ -95,7 +95,6 @@ def main():
 
         # build graph
         gan.build_model()
-
       
         # show network architecture
         show_all_variables()
