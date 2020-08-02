@@ -47,7 +47,7 @@ ___
 ### 1. Download vgg19 or Pretrained model  
 > [vgg19.npy](https://github.com/TachibanaYoshino/AnimeGAN/releases/tag/vgg16%2F19.npy)  
   
-> [Pretrained model](https://github.com/TachibanaYoshino/AnimeGAN/releases/tag/Haoyao-style_V1.0)  
+> [Pretrained model](https://github.com/TachibanaYoshino/AnimeGAN/releases/tag/Haoyao-style_v1.0)  
 
 ### 2. Download dataset  
 > [Link](https://github.com/TachibanaYoshino/AnimeGAN/releases/tag/dataset-1)  
