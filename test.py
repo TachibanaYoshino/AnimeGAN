@@ -14,9 +14,9 @@ def parse_args():
 
     parser.add_argument('--checkpoint_dir', type=str, default='checkpoint/'+'generator_Hayao_weight/',
                         help='Directory name to save the checkpoints')
-    parser.add_argument('--test_dir', type=str, default='dataset/val',
+    parser.add_argument('--test_dir', type=str, default='dataset/test/HR_photo',
                         help='Directory name of test photos')
-    parser.add_argument('--style_name', type=str, default='H',
+    parser.add_argument('--style_name', type=str, default='Hayao',
                         help='what style you want to get')
     parser.add_argument('--if_adjust_brightness', type=bool, default=True,
                         help='adjust brightness by the real photo')

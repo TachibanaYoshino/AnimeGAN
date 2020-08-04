@@ -1,4 +1,4 @@
-from ops import *
+from tools.ops import *
 import tensorflow as tf
 
 
@@ -92,7 +92,6 @@ def Downsample(inputs, filters = 256, kernel_size=3):
 
 class G_net(object):
 
-
     def __init__(self, inputs):
 
         with tf.variable_scope('G_MODEL'):
@@ -128,9 +127,9 @@ class G_net(object):
                 inputs = Conv2DNormLReLU(inputs, 64)
                 inputs = Conv2DNormLReLU(inputs, 64)
 
-            out = Conv2D(inputs, filters =3, kernel_size=1, strides=1)
-
-            self.fake = tf.tanh(out)
+            with tf.variable_scope('output_layer'):
+                out = Conv2D(inputs, filters =3, kernel_size=1, strides=1)
+                self.fake = tf.tanh(out)
 
 
     def InvertedRes_block(self, input, expansion_ratio, output_dim, stride, name, reuse=False, bias=None):

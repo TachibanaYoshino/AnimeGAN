@@ -1,6 +1,8 @@
 '''
    made by @finnkso (github)
    2020.04.09
+   tensorflow-gpu==1.15.0  : tf.compat.v1
+   if tensorflow-gpu==1.8.0, please replayce tf.compat.v1 to tf
 '''
 import argparse
 import os
@@ -15,6 +17,8 @@ from net import generator
 from tools.utils import preprocessing, check_folder
 from tools.adjust_brightness import adjust_brightness_from_src_to_dst
 
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+
 def parse_args():
     desc = "Tensorflow implementation of AnimeGAN"
     parser = argparse.ArgumentParser(description=desc)
@@ -24,7 +28,7 @@ def parse_args():
                         help='Directory name to save the checkpoints')
     parser.add_argument('--output', type=str, default='video/output',
                         help='output path')
-    parser.add_argument('--output_format', type=str, default='XVID',
+    parser.add_argument('--output_format', type=str, default='MP4V',
                         help='codec used in VideoWriter when saving video to file')
 
     return parser.parse_args()

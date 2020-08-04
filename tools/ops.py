@@ -212,7 +212,7 @@ def discriminator_loss(loss_func, real, gray, fake, real_blur):
         fake_loss = tf.reduce_mean(relu(1.0 + fake))
         real_blur_loss = tf.reduce_mean(relu(1.0 + real_blur))
 
-    loss = 1.5 * real_loss + 1.5 * fake_loss + 1.5 * gray_loss  +  0.8 * real_blur_loss
+    loss = 1.7 * real_loss + 1.7 * fake_loss + 1.7 * gray_loss  +  0.8 * real_blur_loss
 
     return loss
 
@@ -278,7 +278,7 @@ def color_loss(con, fake):
     con = rgb2yuv(con)
     fake = rgb2yuv(fake)
 
-    return  L1_loss(con[:,:,:,0], fake[:,:,:,0]) +  Huber_loss(con[:,:,:,1],fake[:,:,:,1]) +  Huber_loss(con[:,:,:,2],fake[:,:,:,2])
+    return L1_loss(con[:,:,:,0], fake[:,:,:,0]) + Huber_loss(con[:,:,:,1],fake[:,:,:,1]) + Huber_loss(con[:,:,:,2],fake[:,:,:,2])
 
 def rgb2yuv(rgb):
     """

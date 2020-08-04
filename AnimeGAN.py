@@ -58,7 +58,7 @@ class AnimeGAN(object) :
         self.real = tf.placeholder(tf.float32, [self.batch_size, self.img_size[0], self.img_size[1], self.img_ch], name='real_A')
         self.anime = tf.placeholder(tf.float32, [self.batch_size, self.img_size[0], self.img_size[1], self.img_ch], name='anime_A')
         self.anime_smooth = tf.placeholder(tf.float32, [self.batch_size, self.img_size[0], self.img_size[1], self.img_ch], name='anime_smooth_A')
-        self.test_real = tf.placeholder(tf.float32, [1, None, None, self.img_ch], name='test_real_A')
+        self.test_real = tf.placeholder(tf.float32, [1, None, None, self.img_ch], name='test_input')
 
         self.anime_gray = tf.placeholder(tf.float32, [self.batch_size, self.img_size[0], self.img_size[1], self.img_ch],name='anime_B')
 
@@ -88,7 +88,7 @@ class AnimeGAN(object) :
     # Generator
     ##################################################################################
 
-    def generator(self, x_init, reuse=False, scope="generator"):
+    def generator(self,x_init, reuse=False, scope="generator"):
 
         with tf.variable_scope(scope, reuse=reuse) :
             G = generator.G_net(x_init)
@@ -228,7 +228,6 @@ class AnimeGAN(object) :
         j = self.training_rate
         for epoch in range(start_epoch, self.epoch):
 
-
             for idx in range(int(self.dataset_num / self.batch_size)):
 
                 anime, anime_smooth, real = self.sess.run([anime_img_op, anime_smooth_op, real_img_op])
@@ -303,9 +302,6 @@ class AnimeGAN(object) :
                     save_images(test_real, save_path+'{:03d}_a.png'.format(i), None)
                     # adjust_brightness_from_photo_to_fake
                     save_images(test_generated, save_path+'{:03d}_b.png'.format(i), sample_file) 
-
-
-
 
 
     @property

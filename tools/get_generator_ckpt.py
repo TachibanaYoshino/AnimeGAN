@@ -5,12 +5,11 @@ from net import generator
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
-
 def parse_args():
     desc = "AnimeGAN"
     parser = argparse.ArgumentParser(description=desc)
 
-    parser.add_argument('--checkpoint_dir', type=str, default=os.path.dirname(os.path.dirname(__file__))+ '/checkpoint/' + 'AnimeGAN_Hayao_lsgan_300_300_1_1_10',
+    parser.add_argument('--checkpoint_dir', type=str, default='../checkpoint/' + 'AnimeGAN_Hayao_lsgan_300_300_1_2_10',
                         help='Directory name to save the checkpoints')
     parser.add_argument('--style_name', type=str, default='Hayao',
                         help='what style you want to get')
@@ -23,23 +22,21 @@ def save(saver, sess, checkpoint_dir, model_name):
     saver.save(sess, save_path, write_meta_graph=True)
     return  save_path
 
-
 def main(checkpoint_dir, style_name, ):
 
-    ckpt_dir = os.path.dirname(os.path.dirname(__file__))+ '/checkpoint/' + 'generator_'+style_name+'_weight'
+    ckpt_dir = '../checkpoint/' + 'generator_'+style_name+'_weight'
     check_folder(ckpt_dir)
 
-    placeholder = tf.placeholder(tf.float32, [1, None, None, 3], name='placeholder')
+    placeholder = tf.placeholder(tf.float32, [1, None, None, 3], name='generator_input')
     with tf.variable_scope("generator", reuse=False):
         _ = generator.G_net(placeholder).fake
 
     generator_var = [var for var in tf.trainable_variables() if var.name.startswith('generator')]
     saver = tf.train.Saver(generator_var)
 
-
     gpu_options = tf.GPUOptions(allow_growth=True)
     with tf.Session(config=tf.ConfigProto(allow_soft_placement=True, gpu_options=gpu_options)) as sess:
-
+        sess.run(tf.global_variables_initializer())
         # load model
         ckpt = tf.train.get_checkpoint_state(checkpoint_dir)  # checkpoint file information
         if ckpt and ckpt.model_checkpoint_path:
