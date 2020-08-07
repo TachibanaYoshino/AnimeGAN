@@ -21,7 +21,7 @@ The paper can be accessed [here](https://github.com/TachibanaYoshino/AnimeGAN/bl
 3. The generated stylized images will be affected by the overall brightness and tone of the style data, so try not to select the anime images of night as the style data, and it is necessary to make an exposure compensation for the overall style data to promote the consistency of brightness and darkness of the entire style data.  
 
 **News:**   
-&ensp;&ensp;&ensp;&ensp;&ensp;  AnimeGAN+ will be expected to be released this summer.(TBD)  
+&ensp;&ensp;&ensp;&ensp;&ensp;  ***AnimeGANv2*** has been released and can be accessed [here](https://github.com/TachibanaYoshino/AnimeGANv2).  
 ```yaml
 The improvement directions of AnimeGAN+ mainly include the following 4 points:  
 ```
