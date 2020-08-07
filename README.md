@@ -23,7 +23,7 @@ The paper can be accessed [here](https://github.com/TachibanaYoshino/AnimeGAN/bl
 **News:**   
 &ensp;&ensp;&ensp;&ensp;&ensp;  ***AnimeGANv2*** has been released and can be accessed [here](https://github.com/TachibanaYoshino/AnimeGANv2).  
 ```yaml
-The improvement directions of AnimeGAN+ mainly include the following 4 points:  
+The improvement directions of AnimeGANv2 mainly include the following 4 points:  
 ```
 &ensp;&ensp; 1. Solve the problem of high-frequency artifacts in the generated image.  
 &ensp;&ensp; 2. It is easy to train and directly achieve the effects in the paper.  
