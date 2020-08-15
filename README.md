@@ -1,5 +1,5 @@
 # AnimeGAN   
-
+[**AnimeGANv2, the improved version of AnimeGAN.**](https://github.com/TachibanaYoshino/AnimeGANv2)  
 A Tensorflow implementation of AnimeGAN for fast photo animation ! &ensp;&ensp;&ensp;&ensp;[日本語](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/doc/Japanese_README.md)  
 The paper can be accessed [here](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/doc/Chen2020_Chapter_AnimeGAN.pdf) or on the [website](https://link.springer.com/chapter/10.1007/978-981-15-5577-0_18).  
 
