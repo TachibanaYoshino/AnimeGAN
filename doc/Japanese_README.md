@@ -1,4 +1,5 @@
-# AnimeGAN
+# AnimeGAN  
+[***AnimeGANの改良版である AnimeGANv2。***](https://github.com/TachibanaYoshino/AnimeGANv2)   
 このAnimeGANは写真をアニメに素早く変換するために使用できます!  
 論文は[ここ](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/doc/Chen2020_Chapter_AnimeGAN.pdf) あるいはこの[サイト](https://link.springer.com/chapter/10.1007/978-981-15-5577-0_18) からアクセスできます。    
 
@@ -18,7 +19,7 @@
 3. 生成された画風化画像は、スタイルデータの全体的な輝度と色調の影響を受けるので、できるだけ夜のアニメ画像をスタイルデータとして選択しないでください。また、全体のスタイルデータに対して露出補償を行う必要があります。全体のスタイルデータの明暗一致を促進します。  
   
 **新しいニュース**：  
-&ensp;&ensp;&ensp;&ensp;&ensp;  AnimeGANv2 がリリースされ、[ここ](https://github.com/TachibanaYoshino/AnimeGANv2)からアクセスできます。。  
+&ensp;&ensp;&ensp;&ensp;&ensp;  ***AnimeGANv2*** がリリースされ、[ここ](https://github.com/TachibanaYoshino/AnimeGANv2)からアクセスできます。  
 ```yaml
 AnimeGANv2 の改善方針には、主に以下の4点があります。
 ```  
