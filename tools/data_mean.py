@@ -27,9 +27,10 @@ def get_mean(dataset_name):
     G_total = 0
     R_total = 0
     for f in tqdm(file_list) :
-        B_total += read_img(f)[0]
-        G_total += read_img(f)[1]
-        R_total += read_img(f)[2]
+        bgr = read_img(f)
+        B_total += bgr[0]
+        G_total += bgr[1]
+        R_total += bgr[2]
 
     B_mean, G_mean, R_mean = B_total / image_num, G_total / image_num, R_total / image_num
     mean = (B_mean + G_mean + R_mean)/3

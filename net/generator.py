@@ -127,9 +127,9 @@ class G_net(object):
                 inputs = Conv2DNormLReLU(inputs, 64)
                 inputs = Conv2DNormLReLU(inputs, 64)
 
-            with tf.variable_scope('output_layer'):
-                out = Conv2D(inputs, filters =3, kernel_size=1, strides=1)
-                self.fake = tf.tanh(out)
+
+            out = Conv2D(inputs, filters =3, kernel_size=1, strides=1)
+            self.fake = tf.tanh(out)
 
 
     def InvertedRes_block(self, input, expansion_ratio, output_dim, stride, name, reuse=False, bias=None):

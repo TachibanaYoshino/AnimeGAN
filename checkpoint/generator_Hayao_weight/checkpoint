@@ -1,3 +1,2 @@
-model_checkpoint_path: "Hayao-50.ckpt"
-all_model_checkpoint_paths: "Hayao-50.ckpt"
-all_model_checkpoint_paths: "Hayao-77.ckpt"
+model_checkpoint_path: "Hayao-60.ckpt"
+all_model_checkpoint_paths: "Hayao-60.ckpt"
