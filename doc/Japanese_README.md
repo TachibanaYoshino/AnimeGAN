@@ -1,5 +1,5 @@
 # AnimeGAN  
-[***AnimeGANの改良版である AnimeGANv2。***](https://github.com/TachibanaYoshino/AnimeGANv2)   
+[**AnimeGANの改良版である AnimeGANv2。**](https://github.com/TachibanaYoshino/AnimeGANv2)   
 このAnimeGANは写真をアニメに素早く変換するために使用できます!  
 論文は[ここ](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/doc/Chen2020_Chapter_AnimeGAN.pdf) あるいはこの[サイト](https://link.springer.com/chapter/10.1007/978-981-15-5577-0_18) からアクセスできます。    
 
@@ -19,7 +19,7 @@
 3. 生成された画風化画像は、スタイルデータの全体的な輝度と色調の影響を受けるので、できるだけ夜のアニメ画像をスタイルデータとして選択しないでください。また、全体のスタイルデータに対して露出補償を行う必要があります。全体のスタイルデータの明暗一致を促進します。  
   
 **新しいニュース**：  
-&ensp;&ensp;&ensp;&ensp;&ensp;  ***AnimeGANv2*** がリリースされ、[ここ](https://github.com/TachibanaYoshino/AnimeGANv2)からアクセスできます。  
+&ensp;&ensp;&ensp;&ensp;&ensp;  **AnimeGANv2** がリリースされ、[**ここ**](https://github.com/TachibanaYoshino/AnimeGANv2)からアクセスできます。  
 ```yaml
 AnimeGANv2 の改善方針には、主に以下の4点があります。
 ```  
@@ -92,6 +92,11 @@ ____
 ![](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/result/Hayao/photo/%2028.jpg) ![](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/result/Hayao/photo_result/%2028.jpg)  
 ![](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/result/Hayao/photo/%2044.jpg) ![](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/result/Hayao/photo_result/%2044.jpg)  
 _____  
+## ライセンス  
+このレポは、学術研究、教育、科学出版物などの非営利目的で、学術団体および非学術団体が自由に利用できるようになっています。 
+私のライセンス条項に同意すると、AnimeGANの使用が許可されます。 商用利用のリクエストについては、承認書を入手するためにメールでご連絡ください。
+## 著者   
+Xin Chen, Gang Liu, Jie Chen   
 ## 感謝  
 このコードは[CartoonGAN-Tensorflow](https://github.com/taki0112/CartoonGAN-Tensorflow/blob/master/CartoonGAN.py) と [Anime-Sketch-Coloring-with-Swish-Gated-Residual-UNet](https://github.com/pradeeplam/Anime-Sketch-Coloring-with-Swish-Gated-Residual-UNet) に基づいています。彼らの貢献に感謝します。  
 
