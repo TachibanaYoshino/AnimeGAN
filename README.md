@@ -95,7 +95,7 @@ ____
 ![](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/result/Hayao/photo/%2044.jpg) ![](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/result/Hayao/photo_result/%2044.jpg)  
 ____  
 ## License   
-This repo is made freely available to academic and non-academic entities for non-commercial purposes such as academic research, teaching, scientific publications. Permission is granted to use the AnimeGAN given that you agree to my license terms.
+This repo is made freely available to academic and non-academic entities for non-commercial purposes such as academic research, teaching, scientific publications. Permission is granted to use the AnimeGAN given that you agree to my license terms. Regarding the request for commercial use, please contact us via email to help you obtain the authorization letter.  
 ## Author  
 Xin Chen, Gang Liu, Jie Chen  
 ## Acknowledgment  
