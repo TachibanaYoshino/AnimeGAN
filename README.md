@@ -34,11 +34,11 @@ ___
 - argparse  
   
 ## Usage  
-### 1. Inference
-    e.g. `python test.py --checkpoint_dir checkpoint/generator_Hayao_weight --test_dir dataset/test/real --style_name H`
+### 1. Inference  
+  e.g.  `python test.py --checkpoint_dir checkpoint/generator_Hayao_weight --test_dir dataset/test/real --style_name H`
     
 ### 2. Convert video to anime  
-    e.g. `python video2anime.py  --video video/input/お花見.mp4  --checkpoint_dir  ./checkpoint/generator_Hayao_weight`  
+  e.g. `python video2anime.py  --video video/input/お花見.mp4  --checkpoint_dir  ./checkpoint/generator_Hayao_weight`  
     
 ### 3. Train 
 #### 1. Download vgg19 or Pretrained model  
@@ -50,13 +50,13 @@ ___
 > [Link](https://github.com/TachibanaYoshino/AnimeGAN/releases/tag/dataset-1)  
   
 #### 3. Do edge_smooth  
-     e.g. `python edge_smooth.py --dataset Hayao --img_size 256`  
+   e.g. `python edge_smooth.py --dataset Hayao --img_size 256`  
   
 #### 4. Train
-     e.g. `python train.py --dataset Hayao  --epoch 101 --init_epoch 5`  
+   e.g. `python train.py --dataset Hayao  --epoch 101 --init_epoch 5`  
   
 #### 5. Extract the weights of the generator  
-     e.g. `python get_generator_ckpt.py --checkpoint_dir  ../checkpoint/AnimeGAN_Hayao_lsgan_300_300_1_1_10  --style_name Hayao`  
+   e.g. `python get_generator_ckpt.py --checkpoint_dir  ../checkpoint/AnimeGAN_Hayao_lsgan_300_300_1_1_10  --style_name Hayao`  
     
    
 ____  
