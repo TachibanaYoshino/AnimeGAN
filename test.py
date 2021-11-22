@@ -18,7 +18,7 @@ def parse_args():
                         help='Directory name of test photos')
     parser.add_argument('--style_name', type=str, default='Hayao',
                         help='what style you want to get')
-    parser.add_argument('--if_adjust_brightness', type=bool, default=True,
+    parser.add_argument('--if_adjust_brightness', type=bool, default=False,
                         help='adjust brightness by the real photo')
 
     return parser.parse_args()

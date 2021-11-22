@@ -212,7 +212,7 @@ def discriminator_loss(loss_func, real, gray, fake, real_blur):
         fake_loss = tf.reduce_mean(relu(1.0 + fake))
         real_blur_loss = tf.reduce_mean(relu(1.0 + real_blur))
 
-    loss = 1.7 * real_loss + 1.7 * fake_loss + 1.7 * gray_loss  +  0.8 * real_blur_loss
+    loss = real_loss + fake_loss + gray_loss + 0.1 * real_blur_loss
 
     return loss
 

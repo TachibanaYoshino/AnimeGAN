@@ -14,11 +14,8 @@ class AnimeGAN(object) :
 
         self.sess = sess
         self.checkpoint_dir = args.checkpoint_dir
-        self.result_dir = args.result_dir
         self.log_dir = args.log_dir
         self.dataset_name = args.dataset
-        self.data_mean = args.data_mean
-
 
         self.epoch = args.epoch
         self.init_epoch = args.init_epoch # args.epoch // 20
@@ -63,9 +60,9 @@ class AnimeGAN(object) :
         self.anime_gray = tf.placeholder(tf.float32, [self.batch_size, self.img_size[0], self.img_size[1], self.img_ch],name='anime_B')
 
 
-        self.real_image_generator = ImageGenerator('./dataset/train_photo', self.img_size, self.batch_size, self.data_mean)
-        self.anime_image_generator = ImageGenerator('./dataset/{}'.format(self.dataset_name + '/style'), self.img_size, self.batch_size, self.data_mean)
-        self.anime_smooth_generator = ImageGenerator('./dataset/{}'.format(self.dataset_name + '/smooth'), self.img_size, self.batch_size, self.data_mean)
+        self.real_image_generator = ImageGenerator('./dataset/train_photo', self.img_size, self.batch_size)
+        self.anime_image_generator = ImageGenerator('./dataset/{}'.format(self.dataset_name + '/style'), self.img_size, self.batch_size)
+        self.anime_smooth_generator = ImageGenerator('./dataset/{}'.format(self.dataset_name + '/smooth'), self.img_size, self.batch_size)
         self.dataset_num = max(self.real_image_generator.num_images, self.anime_image_generator.num_images)
 
         self.vgg = Vgg19()
@@ -140,14 +137,11 @@ class AnimeGAN(object) :
         self.generated = self.generator(self.real)
         self.test_generated = self.generator(self.test_real, reuse=True)
 
-
         anime_logit = self.discriminator(self.anime)
         anime_gray_logit = self.discriminator(self.anime_gray, reuse=True)
 
         generated_logit = self.discriminator(self.generated, reuse=True)
         smooth_logit = self.discriminator(self.anime_smooth, reuse=True)
-
-
 
         """ Define Loss """
         if self.gan_type.__contains__('gp') or self.gan_type.__contains__('lp') or self.gan_type.__contains__('dragan') :
@@ -167,8 +161,6 @@ class AnimeGAN(object) :
 
         g_loss = self.g_adv_weight * generator_loss(self.gan_type, generated_logit)
         d_loss = self.d_adv_weight * discriminator_loss(self.gan_type, anime_logit, anime_gray_logit, generated_logit, smooth_logit) + GP
-
-
 
         self.Generator_loss =  t_loss + g_loss
         self.Discriminator_loss = d_loss
@@ -299,14 +291,14 @@ class AnimeGAN(object) :
                     sample_image = np.asarray(load_test_data(sample_file, self.img_size))
                     test_real,test_generated = self.sess.run([self.test_real,self.test_generated],feed_dict = {self.test_real:sample_image} )
 
-                    save_images(test_real, save_path+'{:03d}_a.png'.format(i), None)
+                    save_images(test_real, save_path+'{:03d}_a.jpg'.format(i), None)
+                    save_images(test_generated, save_path + '{:03d}_b.jpg'.format(i), None)
                     # adjust_brightness_from_photo_to_fake
-                    save_images(test_generated, save_path+'{:03d}_b.png'.format(i), sample_file) 
+                    # save_images(test_generated, save_path+'{:03d}_b.jpg'.format(i), sample_file)
 
 
     @property
     def model_dir(self):
-
         return "{}_{}_{}_{}_{}_{}_{}_{}".format(self.model_name, self.dataset_name,
                                                    self.gan_type,
                                                    int(self.g_adv_weight), int(self.d_adv_weight), int(self.con_weight), int(self.sty_weight), int(self.color_weight))
@@ -334,42 +326,3 @@ class AnimeGAN(object) :
         else:
             print(" [*] Failed to find a checkpoint")
             return False, 0
-
-    def test(self):
-        tf.global_variables_initializer().run()
-        test_files = glob('./dataset/{}/*.*'.format('test/test_photo'))
-
-        self.saver = tf.train.Saver()
-        could_load, checkpoint_counter = self.load(self.checkpoint_dir)
-        self.result_dir = os.path.join(self.result_dir, self.model_dir)
-        check_folder(self.result_dir)
-
-        if could_load :
-            print(" [*] Load SUCCESS")
-        else :
-            print(" [!] Load failed...")
-
-        # write html for visual comparison
-        index_path = os.path.join(self.result_dir, 'index.html')
-        index = open(index_path, 'w')
-        index.write("<html><body><table><tr>")
-        index.write("<th>name</th><th>input</th><th>output</th></tr>")
-
-        for sample_file  in test_files :
-            print('Processing the image: ', sample_file)
-            sample_image = np.asarray(load_test_data(sample_file, self.img_size))
-            image_path = os.path.join(self.result_dir,'{0}'.format(os.path.basename(sample_file)))
-
-            fake_img = self.sess.run(self.test_generated, feed_dict = {self.test_real : sample_image})
-            # adjust_brightness_from_photo_to_fake
-            save_images(fake_img, image_path, sample_file)
-
-            index.write("<td>%s</td>" % os.path.basename(image_path))
-
-            index.write("<td><img src='%s' width='%d' height='%d'></td>" % (sample_file if os.path.isabs(sample_file) else (
-                '../..' + os.path.sep + sample_file), self.img_size[1] +32, self.img_size[0]+32))
-            index.write("<td><img src='%s' width='%d' height='%d'></td>" % (image_path if os.path.isabs(image_path) else (
-                '../..' + os.path.sep + image_path), self.img_size[1]+32, self.img_size[0]+32))
-            index.write("</tr>")
-
-        index.close()

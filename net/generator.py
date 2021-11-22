@@ -127,7 +127,6 @@ class G_net(object):
                 inputs = Conv2DNormLReLU(inputs, 64)
                 inputs = Conv2DNormLReLU(inputs, 64)
 
-
             out = Conv2D(inputs, filters =3, kernel_size=1, strides=1)
             self.fake = tf.tanh(out)
 
