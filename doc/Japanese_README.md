@@ -3,8 +3,9 @@
 論文は[ここ](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/doc/Chen2020_Chapter_AnimeGAN.pdf) あるいはこの[サイト](https://link.springer.com/chapter/10.1007/978-981-15-5577-0_18) からアクセスできます。    
   
 [**AnimeGANの改良版である AnimeGANv2.**](https://github.com/TachibanaYoshino/AnimeGANv2)  
-**オンラインアクセス**：  このオンラインサイトを開発してくれた[@TonyLianLong](https://github.com/TonyLianLong/AnimeGAN.js) のおかげで、何もインストールしなくてもブラウザから直接アクセスできます。[ここをクリックして試してみてください！](https://animegan.js.org/)  
-**Pytorch version**:  [pytorch-animeGAN](https://github.com/ptran1203/pytorch-animeGAN).      
+**オンラインアクセス**：  このオンラインサイトを開発してくれた[@TonyLianLong](https://github.com/TonyLianLong/AnimeGAN.js) のおかげで、何もインストールしなくてもブラウザから直接アクセスできます。[ここをクリックして試してみてください！](https://animegan.js.org/)   
+**Pytorch version**:  [pytorch-animeGAN](https://github.com/ptran1203/pytorch-animeGAN).   
+
 -----    
 **いくつかのアドバイス**   
 1. 訓練セットの真実の写真は風景写真ですので、人物を主体として写真を様式化するなら、トレーニングセットに少なくとも3000人の写真を追加して、新たなモデルを獲得するようにトレーニングしてください。  
