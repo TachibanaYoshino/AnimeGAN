@@ -1,6 +1,8 @@
 # AnimeGAN    
 A Tensorflow implementation of AnimeGAN for fast photo animation ! &ensp;&ensp;&ensp;&ensp;[日本語](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/doc/Japanese_README.md)  
 The paper can be accessed [here](https://github.com/TachibanaYoshino/AnimeGAN/blob/master/doc/Chen2020_Chapter_AnimeGAN.pdf) or on the [website](https://link.springer.com/chapter/10.1007/978-981-15-5577-0_18).  
+    
+### If you like what I'm doing you can tip me on [patreon](https://www.patreon.com/Asher_Chan).    
    
 [**AnimeGANv2, the improved version of AnimeGAN.**](https://github.com/TachibanaYoshino/AnimeGANv2)   
 **Online access**:  Be grateful to [@TonyLianLong](https://github.com/TonyLianLong/AnimeGAN.js) for developing an online access project, you can implement photo animation through a browser without installing anything, [click here to have a try](https://animegan.js.org/).     
